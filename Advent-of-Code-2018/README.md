@@ -1,1 +1,1 @@
-# Advent-of-Code2018
+# aoc2018

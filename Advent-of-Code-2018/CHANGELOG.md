@@ -1,4 +1,4 @@
-# Changelog for `Advent-of-Code2018`
+# Changelog for `aoc2018`
 
 All notable changes to this project will be documented in this file.
 

@@ -1,6 +1,6 @@
-name:                Advent-of-Code2018
+name:                aoc2018
 version:             0.1.0.0
-github:              "githubuser/Advent-of-Code2018"
+github:              "githubuser/aoc2018"
 license:             BSD-3-Clause
 author:              "Author name here"
 maintainer:          "example@example.com"
@@ -17,7 +17,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/githubuser/Advent-of-Code2018#readme>
+description:         Please see the README on GitHub at <https://github.com/githubuser/aoc2018#readme>
 
 dependencies:
 - base >= 4.7 && < 5
@@ -37,7 +37,7 @@ library:
   source-dirs: src
 
 executables:
-  Advent-of-Code2018-exe:
+  aoc2018-exe:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -45,10 +45,10 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - Advent-of-Code2018
+    - aoc2018
 
 tests:
-  Advent-of-Code2018-test:
+  aoc2018-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -56,4 +56,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - Advent-of-Code2018
+    - aoc2018
