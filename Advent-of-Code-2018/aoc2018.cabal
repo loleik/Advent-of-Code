@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Days.Day01
+      Days.Day02
       Runner
       Utils.Parse
   other-modules:
