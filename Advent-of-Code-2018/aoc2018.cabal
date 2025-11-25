@@ -25,7 +25,9 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      Days.Day01
+      Runner
+      Utils.Parse
   other-modules:
       Paths_aoc2018
   autogen-modules:
@@ -35,6 +37,7 @@ library
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , containers
   default-language: Haskell2010
 
 executable aoc2018-exe
@@ -49,6 +52,7 @@ executable aoc2018-exe
   build-depends:
       aoc2018
     , base >=4.7 && <5
+    , containers
   default-language: Haskell2010
 
 test-suite aoc2018-test
@@ -64,4 +68,5 @@ test-suite aoc2018-test
   build-depends:
       aoc2018
     , base >=4.7 && <5
+    , containers
   default-language: Haskell2010
