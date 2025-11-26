@@ -4,7 +4,7 @@ A central repository for my [Advent of Code](https://adventofcode.com) solutions
 ## Progress
 | Year | Stars | Language |
 | :--  | :----:|  :----:  |
-| 2018 |  0/50 | Haskell  |
+| 2018 |  4/50 | Haskell  |
 | 2021 | 25/50 |  Scala*  |
 | 2023 | 32/50 |   Rust   |
 | 2024 | 35/50 |   Rust   |
