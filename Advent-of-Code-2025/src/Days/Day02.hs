@@ -24,8 +24,11 @@ runDay02 = do
     let split = map (splitting '-') parsed
     let expanded = concatMap expandRange split
 
-    let invalidIDs =matches "^(\\d+)\\1$" expanded
-    let result1 = sumIDs invalidIDs
+    let invalidIDs1 = matches "^(\\d+)\\1$" expanded
+    let result1 = sumIDs invalidIDs1
+
+    let invalidIDs2 = matches "^(\\d+)\\1+$" expanded
+    let result2 = sumIDs invalidIDs2
 
     putStrLn $ "Part 1: " ++ show result1
-    putStrLn  "Part 2: "
+    putStrLn $ "Part 2: " ++ show result2
