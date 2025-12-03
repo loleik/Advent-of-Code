@@ -1,9 +1,11 @@
 module Runner (runDay) where
 
-import qualified Days.Day01 as Day01
-import qualified Days.Day02 as Day02
+import Days.Day01 ( runDay01 )
+import Days.Day02 ( runDay02 )
+import Days.Day03 ( runDay03 )
 
 runDay :: Int -> IO ()
-runDay 1 = Day01.runDay01
-runDay 2 = Day02.runDay02
+runDay 1 = runDay01
+runDay 2 = runDay02
+runDay 3 = runDay03
 runDay _ = putStrLn "Unknown"
