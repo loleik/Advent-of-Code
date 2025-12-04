@@ -33,26 +33,55 @@ isAtSign m (r, c) =
         Just '@' -> neighbours m (r, c)
         _        -> "@@@@@@@@"
 
-allNeighbours :: Matrix Char -> V.Vector (V.Vector [Char])
+allNeighbours :: Matrix Char -> V.Vector (V.Vector ((Int, Int), [Char]))
 allNeighbours m = 
     V.imap (\r row ->
-        V.imap (\c _ -> isAtSign m  (r,c)) row
+        V.imap (\c _ -> ((r, c), isAtSign m  (r,c))) row
     ) m
 
+findCells :: Matrix Char -> V.Vector ((Int, Int), [Char])
+findCells m = 
+    let flattened = V.concatMap id (allNeighbours m)
+    in V.filter (\(_, xs) -> length xs < 4) flattened
+
+removeRolls :: Matrix Char -> V.Vector (Int, Int) -> Matrix Char
+removeRolls m coords = 
+    V.imap (\r row ->
+        V.imap (\c val ->
+            if (r, c) `elem` coords
+                then '.'
+                else val
+        ) row
+    ) m
+
+countDiff :: Eq a => Matrix a -> Matrix a -> Int
+countDiff m1 m2 =
+    V.sum $
+        V.zipWith
+            (\row1 row2 ->
+                V.length $ V.filter id $
+                    V.zipWith (/=) row1 row2    
+            )
+            m1
+            m2
+
 part1 :: Matrix Char -> Int
-part1 m = 
-    let ns       = V.concatMap id (allNeighbours m)
-        filtered = V.filter (\xs -> length xs < 4) ns
-    in length filtered
+part1 m = V.length (findCells m)
+
+part2 :: Matrix Char -> Matrix Char
+part2 m = 
+    let coords = V.map fst (findCells m)
+    in if not (null coords)
+        then part2 (removeRolls m coords)
+        else removeRolls m coords
 
 runDay04 :: IO ()
 runDay04 = do
     raw <- readInput "inputs/day04.txt"
-
     let matrix = V.fromList (map V.fromList raw)
 
     let result1 = part1 matrix
-
     putStrLn $ "Part 1: " ++ show result1
 
-    putStrLn "Part 2: "
+    let result2 = countDiff matrix (part2 matrix)
+    putStrLn $ "Part 2: " ++ show result2
