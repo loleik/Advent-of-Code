@@ -24,6 +24,8 @@ dependencies:
 - containers
 - text
 - regex-pcre
+- vector
+- array
 
 ghc-options:
 - -Wall
