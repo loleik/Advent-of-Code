@@ -4,7 +4,7 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025) written in
 ## Usage
 To be added...
 
-## Stars 9/24
+## Stars 10/24
 | Day | Part 1 | Part 2 |
 | :-- | :----: | :----: |
 |  1  | ★ | ★ | 
