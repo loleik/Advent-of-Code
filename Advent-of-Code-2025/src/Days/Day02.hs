@@ -1,4 +1,4 @@
-module Days.Day02 (runDay02) where
+module Days.Day02 (runDay02, matches, expandRange) where
 
 import Utils.Parse ( readInput, splitting )
 import qualified Data.Text as T
