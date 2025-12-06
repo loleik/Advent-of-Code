@@ -3,7 +3,6 @@ module Days.Day06 ( runDay06 ) where
 import Utils.Parse ( readInput, splitting )
 import qualified Data.Text as T
 import Data.List (transpose)
-import Debug.Trace (trace)
 
 parse :: [String] -> [[T.Text]]
 parse ls =
@@ -37,21 +36,17 @@ equations' (ls,  op) =
 
 part2 :: [[Char]] -> Int -> [String] -> Int
 part2 ls total (op:ops) =
-    trace (show (length op - 1)) $
-    trace (show op) $
-    trace (show total) $
-
     case length op - 1 of
         2 -> let (chunk, rest) = splitAt 2 ls
                  numbers       = map read chunk :: [Int]
-             in trace ("numbers==" ++ show numbers) part2 rest (total + equations' (numbers, op)) ops
+             in part2 rest (total + equations' (numbers, op)) ops
         3 -> let (chunk, rest) = splitAt 3 ls
                  numbers       = map read chunk :: [Int]
-            in trace ("numbers==" ++ show numbers) part2 rest (total + equations' (numbers, op)) ops
+             in part2 rest (total + equations' (numbers, op)) ops
         4 -> let (chunk, rest) = splitAt 4 ls
                  numbers       = map read chunk :: [Int]
-            in trace ("numbers==" ++ show numbers) part2 rest (total + equations' (numbers, op)) ops
-        _ -> trace "FUCK FUCK FUCK" total
+             in part2 rest (total + equations' (numbers, op)) ops
+        _ -> total
 part2 _ total _ = 
     total
 
